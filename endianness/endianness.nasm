@@ -25,7 +25,7 @@ iterate:
 	sub	rcx, 4			; every iteration shifts 4 fewer
 	sar	rax, cl			; shift rax 'cl' times (cl is lowest byte of rcx)
 	and	rax, 0xf		; 'AND' rax with 0xf to preserve lowest 4 bits
-	lea	rsi, [codes + rax]	; add value of rax to address of codes
+	lea	rsi, [codes + eax]	; add value of rax to address of codes
 
 	mov	rax, 1			; 'write' syscall identifier (prepare to write)
 	push	rcx			; 'write' syscall alters rcx (counter) (rcx caller saved)
